@@ -9,7 +9,8 @@ is served to the users web browser and executes on the browser.
 Usage: This file is called automatically when the webpage is served.
 */
 
-var socket = io(); // WebSocket connection setup
+// WebSocket connection setup
+var socket = io();
 
 // send out LedOn message over socket
 function ledON() {
@@ -26,11 +27,6 @@ function ledOFF() {
 socket.on('server-msg', function(msg) {
   msg = msg.toString();
   console.log('msg:', msg);
-  if (msg == "light") {
-    console.log("same type!");
-  } else {
-    console.log("different!");
-  }
   switch (msg) {
     case "light":
       document.body.style.backgroundColor = "white";
@@ -41,8 +37,7 @@ socket.on('server-msg', function(msg) {
       console.log("black");
       break;
     default:
-      console.log(typeof msg);
-      console.log(typeof "light");
+      //console.log("somthing else");
       break;
   }
 });

@@ -15,14 +15,12 @@ line input.
 */
 
 var express = require('express'); // web server application
-var http = require('http'); // http basics
-var app = express(); // instantiate express server
-var server = http.Server(app); // connects http library to server
-var io = require('socket.io')(server); // connect websocket library to server
+var app = express(); // webapp
+var http = require('http').Server(app); // connects http library to server
+var io = require('socket.io')(http); // connect websocket library to server
 var serverPort = 8000;
 var SerialPort = require('serialport'); // serial library
 var Readline = SerialPort.parsers.Readline; // read serial data as lines
-
 
 //---------------------- WEBAPP SERVER SETUP ---------------------------------//
 // use express to create the simple webapp
@@ -36,7 +34,7 @@ if (!process.argv[2]) {
 }
 
 // start the server and say what port it is on
-server.listen(serverPort, function() {
+http.listen(serverPort, function() {
   console.log('listening on *:%s', serverPort);
 });
 //----------------------------------------------------------------------------//
