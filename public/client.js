@@ -1,27 +1,48 @@
-var socket = io();
+/*
+client.js
+
+Author: Nikolas Martelaro (nmartelaro@gmail.com)
+
+Purpose: This run the interactivity and communication for the web app. This file
+is served to the users web browser and executes on the browser.
+
+Usage: This file is called automatically when the webpage is served.
+*/
+
+var socket = io(); // WebSocket connection setup
 
 // send out LedOn message over socket
 function ledON() {
-    socket.emit('ledON');
+  socket.emit('ledON');
 }
 
 // send out ledOFF message over socket
 function ledOFF() {
-    socket.emit('ledOFF');
+  socket.emit('ledOFF');
 }
 
 // read the data from the message that the server sent and change the
 // background of the webpage based on the data in the message
 socket.on('server-msg', function(msg) {
-    console.log('msg:', msg);
-    switch(msg) {
-        case 'light':
-            document.body.style.backgroundColor = 'white';
-            console.log('white')
-            break;
-        case 'dark':
-            document.body.style.backgroundColor = 'black';
-            console.log('black');
-            break;
-    }
+  msg = msg.toString();
+  console.log('msg:', msg);
+  if (msg == "light") {
+    console.log("same type!");
+  } else {
+    console.log("different!");
+  }
+  switch (msg) {
+    case "light":
+      document.body.style.backgroundColor = "white";
+      console.log("white")
+      break;
+    case "dark":
+      document.body.style.backgroundColor = "black";
+      console.log("black");
+      break;
+    default:
+      console.log(typeof msg);
+      console.log(typeof "light");
+      break;
+  }
 });

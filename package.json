@@ -1,15 +1,25 @@
 {
   "name": "helloYou",
   "version": "0.0.1",
-  "private": true,
-  "description": "Hello, you sample project",
+  "description": "Hello You sample code fro the Interaction Engine",
   "main": "server.js",
-  "author": "Nik Martelaro <nmartelaro@gmail.com>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikmart/interaction-engine.git"
+  },
+  "author": "Nik Martelaro",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikmart/interaction-engine/issues"
+  },
+  "homepage": "https://github.com/nikmart/interaction-engine#readme",
   "dependencies": {
-    "express": "^4.13.3",
-    "node-pre-gyp": "0.6.x",
-    "serialport": "^2.0.5",
-    "socket.io": "^1.3.7"
+    "express": "^4.16.2",
+    "serialport": "^6.0.4",
+    "socket.io": "^2.0.4"
   }
 }

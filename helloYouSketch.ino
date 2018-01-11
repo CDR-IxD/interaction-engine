@@ -1,7 +1,7 @@
-int led = 10; // led that we will toggle
+int led = 13; // led that we will toggle
 char inChar;  // character we will use for messages from the RPi
 
-int button = 15;
+int button = 2;
 int buttonState;
 
 void setup() {
@@ -29,7 +29,7 @@ void loop() {
   if (buttonState != newState) {
     buttonState = newState;
     if(buttonState == HIGH){
-      Serial.println("light");
+      Serial.println("light"); //note println put a /r/n at the end of a line
     }
     else{
       Serial.println("dark");
